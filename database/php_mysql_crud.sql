@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2021 a las 05:34:30
+-- Tiempo de generación: 02-12-2021 a las 03:02:44
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -31,20 +31,19 @@ CREATE TABLE `task` (
   `id` int(11) NOT NULL,
   `title` varchar(245) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `task`
 --
 
-INSERT INTO `task` (`id`, `title`, `description`, `created_at`) VALUES
-(1, 'web', 'Crear sitio web', '2021-11-23 03:07:45'),
-(2, 'sitio web', 'Crear sitio web con node.js', '2021-11-23 03:10:20'),
-(3, 'tarea 1', 'Crear ruta', '2021-11-23 03:16:35'),
-(4, 'tarea 2', 'Crear vista', '2021-11-23 03:19:46'),
-(5, 'web', 'sadas', '2021-11-23 03:25:32'),
-(7, 'Importante', 'asfsafad', '2021-11-23 03:26:43');
+INSERT INTO `task` (`id`, `title`, `description`, `created_at`, `status`) VALUES
+(1, 'web', 'Crear sitio web', '2021-11-23 03:07:45', 0),
+(2, 'sitio web', 'Crear sitio web con node.js', '2021-11-23 03:10:20', 0),
+(3, 'tarea 1', 'Crear rutas', '2021-11-23 03:16:35', 0),
+(4, 'tarea 2', 'Crear vista', '2021-11-23 03:19:46', 1);
 
 --
 -- Índices para tablas volcadas
@@ -64,7 +63,7 @@ ALTER TABLE `task`
 -- AUTO_INCREMENT de la tabla `task`
 --
 ALTER TABLE `task`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
