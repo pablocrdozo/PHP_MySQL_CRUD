@@ -44,7 +44,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        $query = "SELECT * FROM task";
+                        $query = "SELECT * FROM task WHERE status = '0'";
                         $result_task = mysqli_query($conn, $query);
 
                         while($row = mysqli_fetch_array($result_task)){ ?>
@@ -56,6 +56,7 @@
                                 <td>
                                     <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-info"><i class="fas fa-marker"></i></a>
                                     <a href="delete_task.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="update_status.php?id=<?php echo $row['id'] ?>" class="btn btn-warning"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
 
